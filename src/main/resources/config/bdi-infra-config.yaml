@@ -1,0 +1,23 @@
+
+elasticsearch.hostname: "52.53.240.51"
+elasticsearch.port: "9200"
+proxy.host: ""
+proxy.port: "8080"
+
+es.data.updates.index.name: "data-updates"
+es.meta.data.type.name: "meta-data"
+es.last.run.type.name: "lastrun"
+
+es.unique.updated.contexts.query: |
+ {"size":0,"query":{"constant_score":{"filter":{"term":{"context.data-type":"${dataType}"}}}},"aggs":{"group_by_ctx_id":{"terms":{"field":"context.context_id","size":0},"aggs":{"max_timestamp":{"max":{"field":"@timestamp","format":"epoch_millis"}}}}}}
+
+es.updated.contexts.query.result.json.path: "aggregations.group_by_ctx_id.buckets"
+
+es.index.last.run.query: |
+ {"id":"${Id}","timestamp":"${timestamp}","tenantid":"${tenantId}","product":"${product}","workspace":"${workspace}","datatype":"${dataType}","algorithm":"${algorithm}"}
+
+es.last.run.ctx.list.query: |
+ {"si   ze":10000,"query":{"constant_score":{"filter":{"bool":{"must":[{"term":{"datatype":"${dataType}"}},{"term":{"algorithm":"${algorithm}"}}]}}}}}
+
+es.last.run.ctx.list.query.result.json.path: "hits.hits._source"
+

@@ -1,0 +1,10 @@
+GREEN, Izik, Golan
+GREEN, Omer, Berger
+PURPLE, Dror, Banayan
+PURPLE, Michal, Halamish
+RED, Tal, Olier
+RED, Ira, Korabelnikov
+BLUE, Boris, Veytsal
+BLUE, Arie, Kagan
+QA, Roy, Sela
+QA, Rita, Ruvinsky
