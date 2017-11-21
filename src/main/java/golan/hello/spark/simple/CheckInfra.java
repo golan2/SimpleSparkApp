@@ -61,7 +61,7 @@ public class CheckInfra {
             for (TenantContext tenantContext : contextsWithDeltaUpdate) {
                 mtProvider.finishedTenantContextUpdate(tenantContext, ALGO, ts);
             }
-            System.out.println("QQ: Updated: ts=["+ts+"] ts=["+systemTimeToHumanTime(ts)+"]");
+            System.out.println("QQ: ["+contextsWithDeltaUpdate.size()+"] lastUpdate were updated. ts=["+ts+"] ts=["+systemTimeToHumanTime(ts)+"]");
 
 
             System.out.println("QQ: ");
